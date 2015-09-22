@@ -32,7 +32,7 @@ function login(req, res, next) {
 
     return res.status(200).send({
       success: true,
-      message: 'Get your writing boots on.',
+      message: 'How Stoic have you been today?',
       token: token,
       user: user
     });

@@ -1,19 +1,31 @@
 <header>
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li ng-show="users.isLoggedIn()"><a href=""ng-click="users.logout()">Logout</a></li>
+  </ul>
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">EPICTETUS</a>
+      <a href="#home" class="brand-logo">EPICTETUS</a>
       <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="">Progress</a></li>
-        <li><a href="">Today</a></li>
+        <li ng-show="users.isLoggedIn()"><a href="">Progress</a></li>
+        <li ng-show="users.isLoggedIn()"><a href="">Today</a></li>
         <li><a href="">About</a></li>
-        <li><a href="">Login</a></li>
+        <li ng-hide="users.isLoggedIn()"><a href="#login">Login</a></li>
+        <li ng-hide="users.isLoggedIn()"><a href="#signup">Sign up</a></li>
+        <!-- Dropdown Trigger -->
+          <li ng-show="users.isLoggedIn()">
+            <a class="dropdown-button" href="#!" data-activates="dropdown1">{{ users.user.firstname }}<i class="material-icons right">arrow_drop_down</i>
+            </a>
+          </li>
       </ul>
       <ul class="side-nav" id="mobile-nav">
-      <li><a href="">Progress</a></li>
-      <li><a href="">Today</a></li>
-      <li><a href="">About</a></li>
-      <li><a href="">Login</a></li>
+        <li ng-show="users.isLoggedIn()"><a href="">Progress</a></li>
+        <li ng-show="users.isLoggedIn()"><a href="">Today</a></li>
+        <li><a href="">About</a></li>
+        <li ng-hide="users.isLoggedIn()"><a href="#login">Login</a></li>
+        <li ng-hide="users.isLoggedIn()"><a href="#signup">Sign up</a></li>
+        <li ng-show="users.isLoggedIn()"><a href="" ng-click="users.logout()">Logout</a></li>
       </ul>
     </div>
   </nav>

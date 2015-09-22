@@ -14,13 +14,17 @@
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('authorize', {
-        url: '/authorize',
-        templateUrl: './js/views/authorize.html'
+      .state('home', {
+        url: '/',
+        templateUrl: './js/views/home.html'
       })
-      .state('display', {
-        url: '/display',
-        templateUrl: './js/views/display.html'
+      .state('login', {
+        url: '/login',
+        templateUrl: './js/views/login.html'
+      })
+      .state('signup', {
+        url: '/signup',
+        templateUrl: './js/views/signup.html'
       })
   });
 })();

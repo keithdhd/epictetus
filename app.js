@@ -20,7 +20,7 @@ var secret = config.secret;
 // JWT access control. Important to have these before our routes!
 app
   .use('/api', expressJWT({secret: config.secret})
-  .unless({path: ['/api/authorize', '/api/join'], method: 'post, get'}  ));
+  .unless({path: ['/api/authorize', '/api/join'], method: 'post'}  ));
 
 // Handle "No authorization token was found" errors
 app.use(function (error, request, response, next) {
