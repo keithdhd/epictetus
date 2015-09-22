@@ -1,0 +1,21 @@
+<header>
+  <nav class="grey darken-4 mainnav">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Epictetus</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li ng-hide="users.isLoggedIn()"><a href="#authorize">Login</a></li>
+        <li ng-hide="users.isLoggedIn()"><a href="#authorize">Sign up</a></li>
+        <li ng-show="users.isLoggedIn()"><a ng-click="users.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  <nav class="grey lighten-4 subnav">
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down black-text">
+        <li><a href="">Shop</a></li>
+        <li><a href="">Buy Kindle</a></li>
+        <li><a href="">Something else</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
