@@ -5,8 +5,7 @@ var UserSchema = mongoose.Schema({
   firstname     : { type: String },
   lastname      : { type: String },
   email         : { type: String, required: true, unique: true},
-  password      : { type: String },
-  twitterHandle : { type: String }
+  password      : { type: String }
 });
 
 UserSchema.set('toJSON', {
