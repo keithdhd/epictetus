@@ -1,0 +1,135 @@
+
+<div class="section" id="index-banner" ng-controller="InputCtrl as inputCtrl">
+  <div class="container">
+    <br><br>
+    <h1 class="header center orange-text">Welcome {{ users.user.firstname }}</h1>
+    <div class="row center">
+      <h5 class="header col center s12 light">How Stoic were you today?</h5>
+    </div>
+    <div class="row center">
+      <div class="col center s6 offset-s3">
+      <form action="#">
+        <label for="inputCreated">Date</label>
+        <input input-date
+            type="text"
+            name="created"
+            id="inputCreated"
+            ng-model="inputCtrl.currentTime"
+            container="body"
+            format="dd/mm/yyyy"
+            months-full="{{ inputCtrl.month }}"
+            months-short="{{ inputCtrl.monthShort }}"
+            weekdays-full="{{ inputCtrl.weekdaysFull }}"
+            weekdays-short="{{ inputCtrl.weekdaysShort }}"
+            weekdays-letter="{{ inputCtrl.weekdaysLetter }}"
+            disable="disable"
+            min="{{ inputCtrl.minDate }}"
+            max="{{ inputCtrl.maxDate }}"
+            today="inputCtrl.today"
+            clear="inputCtrl.clear"
+            close="inputCtrl.close"
+            select-years="15"
+            on-start="inputCtrl.onStart()"
+            on-render="inputCtrl.onRender()"
+            on-open="inputCtrl.onOpen()"
+            on-close="inputCtrl.onClose()"
+            on-set="inputCtrl.onSet()"
+            on-stop="inputCtrl.onStop()" />
+
+            <!-- Switch -->
+            <div class="switch inputDiv">
+              Did I control what I told myself today?<br><br>
+              <label>
+                No
+                  <input type="checkbox" ng-model="inputCtrl.inputs.control">
+                  <span class="lever"></span>
+                Yes
+              </label>
+            </div>
+
+            <!-- Switch -->
+            <div class="switch inputDiv">
+              Did I take time to consider the vastness of space and time?<br><br>
+              <label>
+                No
+                  <input type="checkbox" ng-model="inputCtrl.inputs.vastness">
+                  <span class="lever"></span>
+                Yes
+              </label>
+            </div>
+
+            <!-- Switch -->
+            <div class="switch inputDiv">
+              Did I accept failure and recover quickly?<br><br>
+              <label>
+                No
+                  <input type="checkbox" ng-model="inputCtrl.inputs.acceptFailure">
+                  <span class="lever"></span>
+                Yes
+              </label>
+            </div>
+
+            <!-- Switch -->
+            <div class="switch inputDiv">
+              Did I feel resistance and move forward anyway?<br><br>
+              <label>
+                No
+                  <input type="checkbox" ng-model="inputCtrl.inputs.resistance">
+                  <span class="lever"></span>
+                Yes
+              </label>
+            </div>
+
+            <!-- Switch -->
+            <div class="switch inputDiv">
+              Did I resist temptation to spend time on social media?<br><br>
+              <label>
+                No
+                  <input type="checkbox" ng-model="inputCtrl.inputs.temptation">
+                  <span class="lever"></span>
+                Yes
+              </label>
+            </div>
+
+            <!-- Switch -->
+            <div class="switch inputDiv">
+              Did I avoid distractions and focus on my work?<br><br>
+              <label>
+                No
+                  <input type="checkbox" ng-model="inputCtrl.inputs.focus">
+                  <span class="lever"></span>
+                Yes
+              </label>
+            </div>
+
+            <!-- Switch -->
+            <div class="switch inputDiv">
+              Did I spend some time in my own company?<br><br>
+              <label>
+                No
+                  <input type="checkbox" ng-model="inputCtrl.inputs.ownCompany">
+                  <span class="lever"></span>
+                Yes
+              </label>
+            </div>
+
+            <!-- Switch -->
+            <div class="switch inputDiv">
+              Did I practice negative visualisation?<br><br>
+              <label>
+                No
+                  <input type="checkbox" ng-model="inputCtrl.inputs.negativeVisulisation">
+                  <span class="lever"></span>
+                Yes
+              </label>
+            </div>
+
+            <div class="switch inputDiv">
+              <button type="submit" class="btn waves-effect waves-light secondary-color">Save<i class="material-icons right">send</i></button>
+            </div>
+        
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

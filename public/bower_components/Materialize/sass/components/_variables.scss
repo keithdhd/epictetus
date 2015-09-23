@@ -1,5 +1,5 @@
 /*** Colors ***/
-$primary-color: color("orange", "darken-2") !default;
+$primary-color: color("orange", "darken-3") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
@@ -95,7 +95,7 @@ $element-top-margin: $gutter-width/3 !default;
 $element-bottom-margin: ($gutter-width*2)/3 !default;
 
 /*** Navbar ***/
-$navbar-height: 100px !default;
+$navbar-height: 64px !default;
 $navbar-height-mobile: 56px !default;
 $navbar-font-color: #fff !default;
 $navbar-brand-font-size: 2.1rem !default;

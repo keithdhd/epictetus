@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-  .module('Epictetus', ['angular-jwt',  'ngResource', 'ngMessages', 'ui.router'])
+  .module('Epictetus', ['angular-jwt',  'ngResource', 'ngMessages', 'ui.router','ui.materialize'])
   .constant('API', 'http://localhost:3000/api')
   .constant('APP_NAME', 'Epictetus')
   .config(function($httpProvider, $stateProvider, $urlRouterProvider) {
@@ -25,6 +25,10 @@
       .state('signup', {
         url: '/signup',
         templateUrl: './js/views/signup.html'
+      })
+      .state('today', {
+        url: '/today',
+        templateUrl: './js/views/today.html'
       })
   });
 })();

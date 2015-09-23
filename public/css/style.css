@@ -5,6 +5,10 @@ html {
 header {
   margin-bottom: 20px; }
 
+.inputDiv {
+  border-bottom: 0.5px solid grey;
+  margin-bottom: 20px; }
+
 body {
   display: flex;
   min-height: 100vh;

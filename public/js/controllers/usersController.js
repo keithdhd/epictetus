@@ -20,6 +20,7 @@
     // Set local user
     if(token) { console.log(res); self.user=res.user; }
     self.message =  res.message ? res.message : null;
+    $location.path("/today");
   }
 
   self.authorize = function() {
@@ -34,7 +35,7 @@
     TokenService.removeToken && TokenService.removeToken();
     self.user = {};
     self.message = null;
-    $location.path("/authorize");
+    $location.path("/login");
   }
 
   self.isLoggedIn = function() {
