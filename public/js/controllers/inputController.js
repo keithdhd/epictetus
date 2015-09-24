@@ -2,8 +2,16 @@ angular
 .module('Epictetus')
 .controller('InputCtrl', InputCtrl);
 
-function InputCtrl(){
+InputCtrl.$inject = ['DiaryEntry', '$location', 'TokenService', '$window'];
+
+function InputCtrl(DiaryEntry, $location, TokenService ,$window){
   var self = this;
+  self.user = {};
+
+  // GET CURRENT USER INFO
+  if ($window.localStorage['secret-handshake']) {
+    self.user = TokenService.parseJwt();
+  }
 
   // Stoic Form inputs
   // An object of the Stoic attributes we want to record
@@ -15,7 +23,8 @@ function InputCtrl(){
     temptation: false,
     focus: false,
     ownCompany: false,
-    negativeVisulisation: false
+    negativeVisulisation: false,
+    user: self.user
   };
 
   // Date input
@@ -33,27 +42,13 @@ function InputCtrl(){
   self.minDate = (new Date(self.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
   self.maxDate = (new Date(self.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
   
-  self.onStart = function () {
-      console.log('onStart');
-  };
-  self.onRender = function () {
-      console.log('onRender');
-  };
-  self.onOpen = function () {
-      console.log('onOpen');
-  };
-  self.onClose = function () {
-      console.log('onClose');
-  };
-  self.onSet = function () {
-      console.log('onSet');
-  };
-  self.onStop = function () {
-      console.log('onStop');
-  };
 
-
-
+  self.save = function(){
+      DiaryEntry.save(self.inputs, function(err, diaryEntry){
+      console.log(diaryEntry);
+      $location.path('/progress');
+    });
+  }
 
   return self;
 }

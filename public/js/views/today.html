@@ -1,5 +1,5 @@
 
-<div class="section" id="index-banner" ng-controller="InputCtrl as inputCtrl">
+<div class="section" id="index-banner" ng-controller="InputCtrl as inputCtrl"  ng-show="users.isLoggedIn()">
   <div class="container">
     <br><br>
     <h1 class="header center orange-text">Welcome {{ users.user.firstname }}</h1>
@@ -8,7 +8,7 @@
     </div>
     <div class="row center">
       <div class="col center s6 offset-s3">
-      <form action="#">
+      <form ng-submit="inputCtrl.save()">
         <label for="inputCreated">Date</label>
         <input input-date
             type="text"
@@ -123,6 +123,8 @@
                 Yes
               </label>
             </div>
+
+            <input type="hidden" id='userId' value='{{users.user.id}}'>
 
             <div class="switch inputDiv">
               <button type="submit" class="btn waves-effect waves-light secondary-color">Save<i class="material-icons right">send</i></button>

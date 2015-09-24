@@ -30,5 +30,9 @@
         url: '/today',
         templateUrl: './js/views/today.html'
       })
+      .state('progress', {
+        url: '/progress',
+        templateUrl: './js/views/progress.html'
+      })
   });
 })();
