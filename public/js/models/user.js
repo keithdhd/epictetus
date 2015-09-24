@@ -24,7 +24,7 @@ function User($resource, API) {
         method: 'POST'
       },
       'getChartData': {
-        url: url + '/getChartData',
+        url: url + '/entries/:userId',
         method: 'GET'
       }
     }

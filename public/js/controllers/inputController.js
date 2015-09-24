@@ -2,9 +2,9 @@ angular
 .module('Epictetus')
 .controller('InputCtrl', InputCtrl);
 
-InputCtrl.$inject = ['DiaryEntry', '$location', 'TokenService', '$window'];
+InputCtrl.$inject = ['DiaryEntry', '$location', 'TokenService', '$window', 'User'];
 
-function InputCtrl(DiaryEntry, $location, TokenService ,$window){
+function InputCtrl(DiaryEntry, $location, TokenService ,$window, User){
   var self = this;
   self.user = {};
 
@@ -54,7 +54,12 @@ function InputCtrl(DiaryEntry, $location, TokenService ,$window){
     self.inputs.date = dateToSave;
 
     DiaryEntry.save(self.inputs, function(err, diaryEntry){
-      console.log(diaryEntry);
+      //get the user's chartData
+      User.getChartData({ userId: self.user.id }, function(data){
+        //update current chart data
+        Chart.chartData = data;
+      });
+
       $location.path('/progress');
     });
   }

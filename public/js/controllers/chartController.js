@@ -2,10 +2,11 @@ angular
 .module('Epictetus')
 .controller('ChartController', ChartController)
 
-ChartController.$inject = ['User']
+ChartController.$inject = ['User'];
 
 function ChartController(User){
   var self = this;
+
 
 
 
