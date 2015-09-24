@@ -22,6 +22,10 @@ function User($resource, API) {
       'join': {
         url: url + '/join',
         method: 'POST'
+      },
+      'getChartData': {
+        url: url + '/getChartData',
+        method: 'GET'
       }
     }
   );

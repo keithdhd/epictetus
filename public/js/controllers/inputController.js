@@ -44,7 +44,16 @@ function InputCtrl(DiaryEntry, $location, TokenService ,$window){
   
 
   self.save = function(){
-      DiaryEntry.save(self.inputs, function(err, diaryEntry){
+    var dateToSave = self.currentTime;
+
+    if(typeof dateToSave === 'string'){
+      var dateArray = self.currentTime.split('/');
+      dateToSave = new Date(dateArray[2], dateArray[1]-1, dateArray[0]);
+    }
+
+    self.inputs.date = dateToSave;
+
+    DiaryEntry.save(self.inputs, function(err, diaryEntry){
       console.log(diaryEntry);
       $location.path('/progress');
     });
