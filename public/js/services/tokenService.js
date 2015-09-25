@@ -22,6 +22,7 @@ function TokenService($window, jwtHelper) {
 
   self.removeToken = function() {
     $window.localStorage.removeItem('secret-handshake');
+    $window.localStorage.removeItem('chartData');
   }
 
   self.isLoggedIn = function() {

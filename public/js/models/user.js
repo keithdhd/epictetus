@@ -25,7 +25,8 @@ function User($resource, API) {
       },
       'getChartData': {
         url: url + '/entries/:userId',
-        method: 'GET'
+        method: 'GET',
+        isArray: true
       }
     }
   );

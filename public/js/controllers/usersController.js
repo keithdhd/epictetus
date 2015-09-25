@@ -3,9 +3,9 @@
   .module('Epictetus')
   .controller('UsersController', UsersController)
 
-  UsersController.$inject = ['User','TokenService', 'APP_NAME', '$location'];
+  UsersController.$inject = ['User','TokenService', 'APP_NAME', '$location', 'Chart', '$window'];
 
-  function UsersController(User, TokenService, APP_NAME, $location) {
+  function UsersController(User, TokenService, APP_NAME, $location, Chart, $window) {
     var self = this;
 
     self.all              = [];
@@ -13,22 +13,31 @@
     self.APP_NAME         = APP_NAME; 
 
   // Function to display the message back to the User
-  function showMessage(res) {
+  function processUserData(res) {
     var token = res.token ? res.token : null;
     
     // Console.log our response from the API
     // Set local user
     if(token) { console.log(res); self.user=res.user; }
     self.message =  res.message ? res.message : null;
+
+    //get the user's chartData
+    User.getChartData({ userId: self.user.id }, function(data){
+      //update current chart data
+      Chart.chartData = data;
+      //save to localStorage
+      $window.localStorage['chartData'] = JSON.stringify(data);
+    });
+
     $location.path("/today");
   }
 
   self.authorize = function() {
-    User.authorize(self.user, showMessage);
+    User.authorize(self.user, processUserData);
   }
 
   self.join = function() {
-    User.join(self.user, showMessage);
+    User.join(self.user, processUserData);
   }
 
   self.logout = function() {

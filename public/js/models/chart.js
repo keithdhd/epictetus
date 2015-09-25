@@ -2,13 +2,12 @@ angular
   .module('Epictetus')
   .factory('Chart', Chart);
 
-Chart.$inject = ['User'];
+Chart.$inject = ['$window'];
 
-function Chart(){
+function Chart($window){
   var self = this;
 
-  self.chartData = {};
-
+  self.chartData = $window.localStorage['chartData'];
 
   return self;
 }

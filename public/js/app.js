@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-  .module('Epictetus', ['angular-jwt',  'ngResource', 'ngMessages', 'ui.router','ui.materialize'])
+  .module('Epictetus', ['angular-jwt',  'ngResource', 'ngMessages', 'ui.router','ui.materialize', 'chart.js'])
   .constant('API', 'http://localhost:3000/api')
   .constant('APP_NAME', 'Epictetus')
   .config(function($httpProvider, $stateProvider, $urlRouterProvider) {

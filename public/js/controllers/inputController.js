@@ -56,11 +56,11 @@ function InputCtrl(DiaryEntry, $location, TokenService ,$window, User){
     DiaryEntry.save(self.inputs, function(err, diaryEntry){
       //get the user's chartData
       User.getChartData({ userId: self.user.id }, function(data){
-        //update current chart data
-        Chart.chartData = data;
+        //save to localStorage
+        $window.localStorage['chartData'] = JSON.stringify(data);
+        $location.path('/progress');
       });
-
-      $location.path('/progress');
+     
     });
   }
 

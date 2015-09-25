@@ -1,1 +1,16 @@
 Progress graph
+
+<div class="section" id="index-banner" ng-controller="ChartController as chart"  ng-show="users.isLoggedIn()">
+  <div class="container">
+    <br><br>
+    <div>
+      {{chart.getChartData()}}
+
+      <canvas id="line" class="chart chart-line" chart-data="chart.data"
+        chart-labels="chart.labels" chart-legend="true" chart-series="chart.series"
+        chart-click="onClick" >
+      </canvas> 
+
+    </div>
+   </div>
+</div>
