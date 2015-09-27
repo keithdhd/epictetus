@@ -5,6 +5,12 @@ html {
 header {
   margin-bottom: 20px; }
 
+#epictetus-logo img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin: 2px 10px 2px 20px; }
+
 .inputDiv {
   border-bottom: 0.5px solid grey;
   margin-bottom: 20px; }

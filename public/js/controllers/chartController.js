@@ -2,20 +2,22 @@ angular
 .module('Epictetus')
 .controller('ChartController', ChartController)
 
-ChartController.$inject = ['User', 'Chart'];
+ChartController.$inject = ['User', 'Chart', 'TokenService'];
 
-function ChartController(User, Chart){
+function ChartController(User, Chart, TokenService){
   var self = this;
+  self.chart = Chart;
 
-  self.getChartData = function(){
-    return Chart.chartData;
+  if(TokenService.isLoggedIn()){
+    self.chart.setChartData();
   }
 
-  self.labels = ["January", "February", "March", "April", "May", "June", "July"];
-  self.series = ['Your Stoic Progress'];
-  self.data = [
-    [65, 59, 80, 81, 56, 55, 40]
-  ];
+  self.labels = self.chart.labels;
+  self.data = self.chart.data;
+  self.series = ['Progress'];
+
+  console.log("hello, I'm ChartController");
+  console.log(self.chart);
 
   return self;
 }

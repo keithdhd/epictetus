@@ -23,10 +23,9 @@
 
     //get the user's chartData
     User.getChartData({ userId: self.user.id }, function(data){
-      //update current chart data
-      Chart.chartData = data;
       //save to localStorage
       $window.localStorage['chartData'] = JSON.stringify(data);
+      Chart.setChartData();
     });
 
     $location.path("/today");
@@ -43,21 +42,14 @@
   self.logout = function() {
     TokenService.removeToken && TokenService.removeToken();
     self.user = {};
+    Chart.data = [];
+    Chart.labels = [];
     self.message = null;
     $location.path("/login");
   }
 
   self.isLoggedIn = function() {
     return TokenService.isLoggedIn ? TokenService.isLoggedIn() : false;
-  }
-
-  self.getTwitterData = function(){
-    TwitterFactory.getData(self.user.twitterHandle, setTwitterData);
-  }
-
-  function setTwitterData(twitterData){
-    self.user.twitterData = twitterData;
-    console.log(twitterData);
   }
 
   // Load user only if you are logged in!
